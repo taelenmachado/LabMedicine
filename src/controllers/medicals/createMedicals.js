@@ -45,6 +45,8 @@ async function createMedicals (request, response) {
             return validateError(response, 'Especialização não cadastrada')
         }
 
+        const systemStatus = ["ATIVO", "INATIVO"]
+
         if (!systemStatus.includes(medicals.system_status)) {
             return validateError(response, 'Status inválido')
         }

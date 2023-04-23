@@ -6,13 +6,7 @@ const app = express()
 
 const connection = require('./src/database');
 
-/* const swaggerUi = require('swagger-ui-express');
-const swaggerDocument = require('./swagger.json');
-
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument)); */
-
 app.use(express.json()) 
-
 
 connection.authenticate()
 connection.sync({ alter: true })
@@ -58,7 +52,7 @@ app.get('/api/medicals/:id', findOneMedicals)
 
 
 app.post('/api/nurses', createNurses)
-app.put('/api/nurses', updateNurses)
+app.put('/api/nurses/:id', updateNurses)
 app.delete('/api/nurses/:id', deleteNurses)
 app.get('/api/nurses/:id', findNursesById)
 app.get('/api/nurses', findNurses)

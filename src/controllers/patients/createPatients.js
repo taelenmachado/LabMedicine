@@ -29,6 +29,8 @@ async function createPatients(request, response) {
             return validateError(response, 'Contato de emergencia é obrigatório')
         }
 
+        const statusValido = ["AGUARDANDO_ATENDIMENTO", "EM_ATENDIMENTO", "ATENDIDO", "NÃO_ATENDIDO"]
+
         if (!statusValido.includes(patients.status)) {
             return validateError(response, 'Status inválido')
         }
