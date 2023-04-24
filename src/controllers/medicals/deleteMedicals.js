@@ -1,7 +1,8 @@
 const Medicals = require('../../models/medicals')
 
 async function deleteMedicals (request, response) {
-
+// #swagger.tags = ['Medico']
+// #swagger.description = 'Endpoint para deletar médico.'
     try {
        const medicalsInDatabase = await Medicals.findOne(
             { where: { id: request.params.id } }

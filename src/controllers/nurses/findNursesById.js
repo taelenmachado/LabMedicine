@@ -1,6 +1,8 @@
 const Nurses = require('../../models/nurses')
 
 async function findNursesById (request, response) {
+// #swagger.tags = ['Enfermeiro']
+// #swagger.description = 'Endpoint para buscar enfermeiro por id.'
 
     try {
         const nursesInDatabase = await Nurses.findByPk(request.params.id)

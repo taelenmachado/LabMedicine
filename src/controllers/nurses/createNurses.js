@@ -1,6 +1,8 @@
 const Nurses = require('../../models/nurses')
 
 async function createNurses (request, response) {
+// #swagger.tags = ['Enfermeiro']
+// #swagger.description = 'Endpoint para criar um enfermeiro.'
 
     try {
         const nurses = {

@@ -1,7 +1,8 @@
 const Nurses = require('../../models/nurses')
 
 async function deleteNurses (request, response) {
-
+// #swagger.tags = ['Enfermeiro']
+// #swagger.description = 'Endpoint para deletar um enfermeiro.'
     try {
         const nursesInDatabase = await Nurses.findOne(
             { where: { id: request.params.id } }

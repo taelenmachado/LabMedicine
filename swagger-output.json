@@ -1,0 +1,826 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "LabMedicine API",
+    "description": "Software de Atendimentos médicos LABMedicine"
+  },
+  "host": "localhost:3333",
+  "basePath": "/",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/patients": {
+      "post": {
+        "tags": [
+          "Paciente"
+        ],
+        "description": "Endpoint para criar um paciente.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                },
+                "gender": {
+                  "example": "any"
+                },
+                "date_of_birth": {
+                  "example": "any"
+                },
+                "cpf": {
+                  "example": "any"
+                },
+                "contact": {
+                  "example": "any"
+                },
+                "emergency_contact": {
+                  "example": "any"
+                },
+                "allergy": {
+                  "example": "any"
+                },
+                "specific_cautions": {
+                  "example": "any"
+                },
+                "agreement": {
+                  "example": "any"
+                },
+                "status": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Paciente"
+        ],
+        "description": "Endpoint para buscar pacientes.",
+        "parameters": [
+          {
+            "name": "status",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/patients/{id}": {
+      "delete": {
+        "tags": [
+          "Paciente"
+        ],
+        "description": "Endpoint para deletar um paciente.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Paciente"
+        ],
+        "description": "Endpoint para atualizar um paciente.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                },
+                "gender": {
+                  "example": "any"
+                },
+                "date_of_birth": {
+                  "example": "any"
+                },
+                "cpf": {
+                  "example": "any"
+                },
+                "contact": {
+                  "example": "any"
+                },
+                "emergency_contact": {
+                  "example": "any"
+                },
+                "allergy": {
+                  "example": "any"
+                },
+                "specific_cautions": {
+                  "example": "any"
+                },
+                "agreement": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Paciente"
+        ],
+        "description": "Endpoint para buscar um paciente.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/patients/{id}/status": {
+      "put": {
+        "tags": [
+          "Paciente"
+        ],
+        "description": "Endpoint para atualizar o status de atendimento de um paciente.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/medicals": {
+      "post": {
+        "tags": [
+          "Medico"
+        ],
+        "description": "Endpoint para cadastrar médicos.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                },
+                "gender": {
+                  "example": "any"
+                },
+                "date_of_birth": {
+                  "example": "any"
+                },
+                "cpf": {
+                  "example": "any"
+                },
+                "contact": {
+                  "example": "any"
+                },
+                "education_institution": {
+                  "example": "any"
+                },
+                "registration_crm_uf": {
+                  "example": "any"
+                },
+                "clinical_specialization": {
+                  "example": "any"
+                },
+                "system_status": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "409": {
+            "description": "Conflict"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Medico"
+        ],
+        "description": "Endpoint para buscar médicos.",
+        "parameters": [
+          {
+            "name": "status",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/medicals/{id}": {
+      "delete": {
+        "tags": [
+          "Medico"
+        ],
+        "description": "Endpoint para deletar médico.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Medico"
+        ],
+        "description": "Endpoint para atualizar dados do médico.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                },
+                "gender": {
+                  "example": "any"
+                },
+                "date_of_birth": {
+                  "example": "any"
+                },
+                "cpf": {
+                  "example": "any"
+                },
+                "contact": {
+                  "example": "any"
+                },
+                "education_institution": {
+                  "example": "any"
+                },
+                "registration_crm_uf": {
+                  "example": "any"
+                },
+                "clinical_specialization": {
+                  "example": "any"
+                },
+                "system_status": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Medico"
+        ],
+        "description": "Endpoint para buscar um médico.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/medicals/{id}/status": {
+      "put": {
+        "tags": [
+          "Medico"
+        ],
+        "description": "Endpoint para atualizar status do médico.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "system_status": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/nurses": {
+      "post": {
+        "tags": [
+          "Enfermeiro"
+        ],
+        "description": "Endpoint para criar um enfermeiro.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                },
+                "gender": {
+                  "example": "any"
+                },
+                "date_of_birth": {
+                  "example": "any"
+                },
+                "cpf": {
+                  "example": "any"
+                },
+                "contact": {
+                  "example": "any"
+                },
+                "education_institution": {
+                  "example": "any"
+                },
+                "registration_cofen_uf": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "409": {
+            "description": "Conflict"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Enfermeiro"
+        ],
+        "description": "Endpoint para buscar enfermeiros.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/nurses/{id}": {
+      "put": {
+        "tags": [
+          "Enfermeiro"
+        ],
+        "description": "Endpoint para atualizar dados do enfermeiros",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                },
+                "gender": {
+                  "example": "any"
+                },
+                "date_of_birth": {
+                  "example": "any"
+                },
+                "cpf": {
+                  "example": "any"
+                },
+                "contact": {
+                  "example": "any"
+                },
+                "education_institution": {
+                  "example": "any"
+                },
+                "registration_cofen_uf": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Enfermeiro"
+        ],
+        "description": "Endpoint para deletar um enfermeiro.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Enfermeiro"
+        ],
+        "description": "Endpoint para buscar enfermeiro por id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/attendances": {
+      "post": {
+        "tags": [
+          "Atendimento"
+        ],
+        "description": "Endpoint para criar atendimento médico.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "patient_id": {
+                  "example": "any"
+                },
+                "medical_id": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "4094": {
+            "description": ""
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Medico": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "Fernando Souza Santos Vieira "
+        },
+        "gender": {
+          "type": "string",
+          "example": "masculino"
+        },
+        "date_of_birth": {
+          "type": "string",
+          "example": "1959-03-13"
+        },
+        "cpf": {
+          "type": "string",
+          "example": "700.288.991-19"
+        },
+        "contact": {
+          "type": "string",
+          "example": "(48) 99965-7890"
+        },
+        "education_institution": {
+          "type": "string",
+          "example": "UFSP"
+        },
+        "registration_crm_uf": {
+          "type": "string",
+          "example": "CRM SC 58781"
+        },
+        "clinical_specialization": {
+          "type": "string",
+          "example": "Ginecologia"
+        },
+        "system_status": {
+          "type": "string",
+          "example": "Ativo"
+        },
+        "attendances": {
+          "type": "number",
+          "example": 0
+        }
+      }
+    },
+    "Enfermeiro": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "Carlos Silva Santos "
+        },
+        "gender": {
+          "type": "string",
+          "example": "masculino"
+        },
+        "date_of_birth": {
+          "type": "string",
+          "example": "1994-11-10"
+        },
+        "cpf": {
+          "type": "string",
+          "example": "919.288.390-19"
+        },
+        "contact": {
+          "type": "string",
+          "example": "(31) 99321-7890"
+        },
+        "education_institution": {
+          "type": "string",
+          "example": "Estácio"
+        },
+        "registration_cofen_uf": {
+          "type": "string",
+          "example": "873425-HG-4231"
+        }
+      }
+    },
+    "Paciente": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "Mariana Luiza Teixeira"
+        },
+        "gender": {
+          "type": "string",
+          "example": "feminino"
+        },
+        "date_of_birth": {
+          "type": "string",
+          "example": "2009-06-13"
+        },
+        "cpf": {
+          "type": "string",
+          "example": "132.705.890-19"
+        },
+        "contact": {
+          "type": "string",
+          "example": "(47) 99876-5465"
+        },
+        "emergency_contact": {
+          "type": "string",
+          "example": "(41) 9998-9898"
+        },
+        "allergy": {
+          "type": "string",
+          "example": "dipirona"
+        },
+        "specific_cautions": {
+          "type": "string",
+          "example": "nothing"
+        },
+        "agreement": {
+          "type": "string",
+          "example": "Bradesco"
+        },
+        "status": {
+          "type": "string",
+          "example": "AGUARDANDO_ATENDIMENTO"
+        }
+      }
+    },
+    "Atendimento": {
+      "type": "object",
+      "properties": {
+        "patient_id": {
+          "type": "number",
+          "example": 12
+        },
+        "medical_id": {
+          "type": "number",
+          "example": 8
+        }
+      }
+    }
+  }
+}

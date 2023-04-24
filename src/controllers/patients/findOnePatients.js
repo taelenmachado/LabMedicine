@@ -1,6 +1,8 @@
 const Patients = require('../../models/patients')
 
 async function findOnePatients (request, response) {
+// #swagger.tags = ['Paciente']
+// #swagger.description = 'Endpoint para buscar um paciente.'
 
     try {
         const patientsInDatabase = await Patients.findByPk(request.params.id)

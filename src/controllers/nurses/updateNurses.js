@@ -1,7 +1,8 @@
 const Nurses = require('../../models/nurses')
 
 async function updateNurses (request, response) {
-
+// #swagger.tags = ['Enfermeiro']
+// #swagger.description = 'Endpoint para atualizar dados do enfermeiros'
     try {
 
         const nursesInDatabase = await Nurses.findByPk(request.params.id)

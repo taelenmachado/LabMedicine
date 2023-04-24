@@ -1,4 +1,6 @@
 require('dotenv').config()
+const swaggerUi = require('swagger-ui-express')
+const swaggerFile = require('./swagger-output.json')
 
 const express = require('express');
 
@@ -6,7 +8,8 @@ const app = express()
 
 const connection = require('./src/database');
 
-app.use(express.json()) 
+app.use(express.json())
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 
 connection.authenticate()
 connection.sync({ alter: true })
@@ -42,14 +45,12 @@ app.put('/api/patients/:id/status', updateStatus)
 app.get('/api/patients', findAllPatients)
 app.get('/api/patients/:id', findOnePatients)
 
-
 app.post('/api/medicals', createMedicals)
 app.delete('/api/medicals/:id', deleteMedicals)
 app.put('/api/medicals/:id', updateMedicals)
 app.put('/api/medicals/:id/status', updateStatusMedicals)
 app.get('/api/medicals', findAllMedicals)
 app.get('/api/medicals/:id', findOneMedicals)
-
 
 app.post('/api/nurses', createNurses)
 app.put('/api/nurses/:id', updateNurses)
@@ -59,4 +60,4 @@ app.get('/api/nurses', findNurses)
 
 app.post('/api/attendances', createAttendances)
 
-app.listen(3333, () => console.log('LabMedicine online'))
+app.listen(3333, () => console.log('LabMedicine online! \nAPI documentation: http://localhost:3333/doc'))

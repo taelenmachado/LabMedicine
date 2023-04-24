@@ -1,7 +1,8 @@
 const Patients = require('../../models/patients')
 
 async function updateStatus (request, response) {
-
+// #swagger.tags = ['Paciente']
+// #swagger.description = 'Endpoint para atualizar o status de atendimento de um paciente.'
     try {
 
         const statusValido = ["AGUARDANDO_ATENDIMENTO", "EM_ATENDIMENTO", "ATENDIDO", "NÃO_ATENDIDO"]

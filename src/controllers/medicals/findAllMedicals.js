@@ -1,7 +1,8 @@
 const Medicals = require('../../models/medicals')
 
 async function findAllMedicals (request, response) {
-
+// #swagger.tags = ['Medico']
+// #swagger.description = 'Endpoint para buscar médicos.'
     try {
         const query = buildQuery(request.query.status);
         const medicals = await Medicals.findAll(query)

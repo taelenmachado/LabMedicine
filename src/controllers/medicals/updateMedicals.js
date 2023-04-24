@@ -1,7 +1,8 @@
 const Medicals = require('../../models/medicals')
 
 async function updateMedicals (request, response) {
-
+// #swagger.tags = ['Medico']
+// #swagger.description = 'Endpoint para atualizar dados do médico.'
     try {
 
         const medicalsInDatabase = await Medicals.findByPk(request.params.id)

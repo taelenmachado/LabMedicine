@@ -1,7 +1,8 @@
 const Medicals = require('../../models/medicals')
 
 async function createMedicals (request, response) {
-
+// #swagger.tags = ['Medico']
+// #swagger.description = 'Endpoint para cadastrar médicos.'
     try {
         const medicals = {
             name: request.body.name,
@@ -45,9 +46,9 @@ async function createMedicals (request, response) {
             return validateError(response, 'Especialização não cadastrada')
         }
 
-        const systemStatus = ["ATIVO", "INATIVO"]
+        const system_status = ["ATIVO", "INATIVO"]
 
-        if (!systemStatus.includes(medicals.system_status)) {
+        if (!system_status.includes(medicals.system_status)) {
             return validateError(response, 'Status inválido')
         }
 

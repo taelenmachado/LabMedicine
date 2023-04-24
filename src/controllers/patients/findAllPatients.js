@@ -2,7 +2,8 @@ const { where } = require('sequelize')
 const Patients = require('../../models/patients')
 
 async function findAllPatients(request, response) {
-
+// #swagger.tags = ['Paciente']
+// #swagger.description = 'Endpoint para buscar pacientes.'
     try {
         const filter = request.query
 

@@ -1,7 +1,8 @@
 const Nurses = require('../../models/nurses')
 
 async function findNurses (request, response) {
-
+// #swagger.tags = ['Enfermeiro']
+// #swagger.description = 'Endpoint para buscar enfermeiros.'
     try {
 
         const nurses = await Nurses.findAll(request.params.id)

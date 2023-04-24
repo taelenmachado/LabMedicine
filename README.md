@@ -28,7 +28,7 @@ Para testar a instalação até o momento:
 - adicionar as configurações de banco de dados no arquivo database.js
 - executar o comando npm install no seu terminal
 - executar o comando npm start no seu terminal
-- acessar a url através da documentação
+- acessar a documentação através da URL: http://localhost:3333/api-docs/#/
 
 
 ### Melhorias à serem aplicadas:

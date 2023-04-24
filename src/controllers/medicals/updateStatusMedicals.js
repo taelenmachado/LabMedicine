@@ -1,6 +1,9 @@
 const Medicals = require('../../models/medicals')
+const system_status = ["ATIVO", "INATIVO"]
 
 async function updateStatusMedicals (request, response) {
+// #swagger.tags = ['Medico']
+// #swagger.description = 'Endpoint para atualizar status do médico.'
 
     try {
 
